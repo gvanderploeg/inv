@@ -16,10 +16,12 @@ It's a Spring Boot application, so:
 
     GET /products
     PUT /products
-    POST /products/{id}
-    GET /products/{id}/variations/{id}/stock
-    GET /stock/products/{name}
+    DELETE /products/{id}
 
 ## Feature backlog
 
 * Batch job for updating forecast, promotion eligability
+
+    GET /products/{id}/variations/{id}/stock
+    GET /stock/products/{name}
+

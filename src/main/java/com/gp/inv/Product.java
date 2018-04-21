@@ -8,6 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotNull;
 
 /**
  * Representation of inventory products.
@@ -16,14 +17,15 @@ import javax.persistence.ManyToOne;
 public class Product {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @Column
+    @NotNull
     private String name;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "merchantId")
+    @JoinColumn(name = "merchant_id")
     private Merchant merchant;
 
     public long getId() {
@@ -40,5 +42,9 @@ public class Product {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public void setMerchant(Merchant merchant) {
+        this.merchant = merchant;
     }
 }
