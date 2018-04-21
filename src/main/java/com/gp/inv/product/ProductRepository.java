@@ -1,5 +1,7 @@
-package com.gp.inv;
+package com.gp.inv.product;
 
+
+import com.gp.inv.merchant.Merchant;
 
 import java.util.List;
 

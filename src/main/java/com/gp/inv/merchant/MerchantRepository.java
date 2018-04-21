@@ -1,4 +1,4 @@
-package com.gp.inv;
+package com.gp.inv.merchant;
 
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.repository.query.Param;

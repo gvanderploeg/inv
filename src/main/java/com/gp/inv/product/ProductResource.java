@@ -1,4 +1,7 @@
-package com.gp.inv;
+package com.gp.inv.product;
+
+import com.gp.inv.merchant.Merchant;
+import com.gp.inv.merchant.MerchantRepository;
 
 import java.security.Principal;
 

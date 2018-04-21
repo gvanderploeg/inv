@@ -1,5 +1,8 @@
 package com.gp.inv;
 
+import com.gp.inv.merchant.Merchant;
+import com.gp.inv.merchant.MerchantRepository;
+
 import java.util.Collections;
 
 import org.springframework.beans.factory.annotation.Autowired;
