@@ -11,6 +11,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+/**
+ * Representation of a merchant.
+ * Owner of products, user of the service.
+ */
 @Entity
 public class Merchant {
 

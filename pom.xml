@@ -13,9 +13,6 @@
         <version>2.0.1.RELEASE</version>
     </parent>
 
-    <properties>
-        <java.version>1.8</java.version>
-    </properties>
 
     <dependencies>
         <dependency>
@@ -71,4 +68,8 @@
             <url>https://repo.spring.io/libs-release</url>
         </pluginRepository>
     </pluginRepositories>
+    
+    <properties>
+        <java.version>1.8</java.version>
+    </properties>
 </project>

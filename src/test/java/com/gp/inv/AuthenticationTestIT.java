@@ -14,6 +14,10 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.httpBasic;
 
+/**
+ * Integration tests for the whole application.
+ * Will be run by Maven Failsafe plugin (not surefire) upon activating maven profile 'it'.
+ */
 @RunWith(SpringRunner.class)
 @SpringBootTest(
     webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT,
@@ -24,7 +28,6 @@ public class AuthenticationTestIT {
 
     @Autowired
     private MockMvc mvc;
-
 
     @Test
     public void unauthenticatedFails() throws Exception {
@@ -42,5 +45,14 @@ public class AuthenticationTestIT {
             .with(httpBasic("handelaar1", "correctbatteryhorsestaple"))
             .contentType(MediaType.APPLICATION_JSON))
             .andExpect(MockMvcResultMatchers.status().isOk());
+    }
+
+    @Test
+    public void authenticationWithNonExistingUser() throws Exception {
+
+        mvc.perform(MockMvcRequestBuilders.get("/products")
+            .with(httpBasic("nonexistinguser", "password123"))
+            .contentType(MediaType.APPLICATION_JSON))
+            .andExpect(MockMvcResultMatchers.status().is4xxClientError());
     }
 }

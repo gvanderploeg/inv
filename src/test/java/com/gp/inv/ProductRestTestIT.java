@@ -11,6 +11,9 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
+
+import static org.hamcrest.Matchers.*;
+import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.httpBasic;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @RunWith(SpringRunner.class)
@@ -24,16 +27,17 @@ public class ProductRestTestIT {
     @Autowired
     private MockMvc mvc;
 
-
     @Test
-    public void testGetAllProducts() throws Exception {
+    public void testGetAllProductsForUser() throws Exception {
 
         mvc.perform(MockMvcRequestBuilders.get("/products")
+            .with(httpBasic("handelaar1", "correctbatteryhorsestaple"))
             .contentType(MediaType.APPLICATION_JSON))
             .andExpect(MockMvcResultMatchers.status().isOk())
             .andExpect(content()
                 .contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
-            .andExpect(jsonPath("$[0].name", org.hamcrest.Matchers.is("sokken")));
+            .andExpect(jsonPath("$[0].name", is("sokken")))
+            // Test dataset has 2 items for this user
+            .andExpect(jsonPath("$", hasSize(2)));
     }
-
 }

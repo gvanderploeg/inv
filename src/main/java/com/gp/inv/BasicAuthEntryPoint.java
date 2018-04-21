@@ -10,6 +10,9 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.www.BasicAuthenticationEntryPoint;
 import org.springframework.stereotype.Component;
 
+/**
+ * Spring Security Authentication Entrypoint for challenging the client for (basic) authentication.
+ */
 @Component
 public class BasicAuthEntryPoint extends BasicAuthenticationEntryPoint {
 
