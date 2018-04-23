@@ -7,3 +7,7 @@ insert into Product (id, name, merchant_id) values (2, 'schoenen', 1);
 
 insert into Product (id, name, merchant_id) values (3, 'sokken', 2);
 
+insert into Product_Stock(id, name, product_id, nr_in_stock, eligable_for_promotion, projected_out_of_stock_date)
+values(1, 'Pallet met veel afgedankte sokken', 1, 1000, false, '2018-10-23');
+insert into Product_Stock(id, name, product_id, nr_in_stock, eligable_for_promotion, projected_out_of_stock_date)
+values(1, 'Pallet met weinig afgedankte sokken', 1, 10, false, '2018-10-23');

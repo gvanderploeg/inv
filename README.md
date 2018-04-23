@@ -4,7 +4,7 @@ REST interface for managing products and its stock.
 ## Getting started
 It's a Spring Boot application, so:
 
-    mvn clean bootRun
+    mvn clean spring-boot:run
 
 ## Security
 
@@ -17,11 +17,11 @@ It's a Spring Boot application, so:
     GET /products
     PUT /products
     DELETE /products/{id}
+    GET /products/{id}/stock
 
 ## Feature backlog
 
 * Batch job for updating forecast, promotion eligability
 
-    GET /products/{id}/variations/{id}/stock
     GET /stock/products/{name}
 
