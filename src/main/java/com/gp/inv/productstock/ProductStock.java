@@ -1,5 +1,6 @@
 package com.gp.inv.productstock;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.gp.inv.product.Product;
 
 import java.util.Date;
@@ -12,7 +13,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.validation.constraints.NotNull;
 
 @Entity
 public class ProductStock {
@@ -22,11 +22,11 @@ public class ProductStock {
     private long id;
 
     @Column
-    @NotNull
     private String name;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "product_id")
+    @JsonIgnore
     private Product product;
 
     @Column

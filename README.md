@@ -6,6 +6,11 @@ It's a Spring Boot application, so:
 
     mvn clean spring-boot:run
 
+## Curl
+
+    curl -v -u handelaar1:correctbatteryhorsestaple http://localhost:8080/products/1
+    curl -v -u handelaar1:correctbatteryhorsestaple http://localhost:8080/products/1/stock
+
 ## Security
 
 * Authentication using Basic Auth.
@@ -21,7 +26,7 @@ It's a Spring Boot application, so:
 
 ## Feature backlog
 
-* Batch job for updating forecast, promotion eligability
-
-    GET /stock/products/{name}
-
+* Batch job for updating forecast (projected out of stock date)
+* Externalize scheduled tasks in some sort of batch application
+* Data modelling improvements of product vs. stock
+* curl examples in README.md

@@ -20,7 +20,7 @@ public class ProductStockTestIT {
 
     @Test
     public void testSchema() {
-        MatcherAssert.assertThat(productStockRepository.count(), IsEqual.equalTo(1L));
+        MatcherAssert.assertThat(productStockRepository.count(), IsEqual.equalTo(2L));
     }
 
 }

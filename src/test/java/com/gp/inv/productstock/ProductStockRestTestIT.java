@@ -1,7 +1,5 @@
 package com.gp.inv.productstock;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.gp.inv.Application;
 
 import org.junit.Test;
@@ -16,7 +14,6 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.request.RequestPostProcessor;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
-import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.httpBasic;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
@@ -36,10 +33,6 @@ public class ProductStockRestTestIT {
         return httpBasic("handelaar1", "correctbatteryhorsestaple");
     }
 
-    private String asJSON(Object obj) throws JsonProcessingException {
-        return new ObjectMapper().writeValueAsString(obj);
-    }
-
     @Test
     public void getProduct1Stock() throws Exception {
 
@@ -49,8 +42,6 @@ public class ProductStockRestTestIT {
             .andExpect(MockMvcResultMatchers.status().isOk())
             .andExpect(content()
                 .contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
-            .andExpect(jsonPath("$[0].name", is("Pallet met afgedankte sokken")))
-            // Test dataset has 2 items for this user
-            .andExpect(jsonPath("$.length()", equalTo(1)));
+            .andExpect(jsonPath("$[0].name", is("Pallet met veel afgedankte sokken")));
     }
 }
